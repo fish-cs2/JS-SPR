@@ -14,10 +14,9 @@
 //     //
 // }   
 let gameCounter = 1
-const maxGames = 5
+const maxWins = 5
 let playerWins = 0
 let compWins = 0
-
 
 function computerSelection() {
         // get random index value
@@ -54,22 +53,25 @@ function game() {
         alert(`Player Wins!`), playerWins++
     }else if (playerSelection === 'scissors' & getComputerSelection === `paper`){
         alert(`Player Wins!`), playerWins++
-    }else if (playerSelection != `rock` & getComputerSelection === `scissors`){
+    }else if (playerSelection != `scissors` & getComputerSelection === `rock`){
         alert(`Computer Wins!`), compWins++;
-    }else if (playerSelection != 'paper' & getComputerSelection === `rock`){
+    }else if (playerSelection != 'rock' & getComputerSelection === `paper`){
         alert(`Computer Wins!`), compWins++;
-    }else if (playerSelection != 'scissors' & getComputerSelection === `paper`){
+    }else if (playerSelection != 'paper' & getComputerSelection === `scissors`){
         alert(`Computer Wins!`), compWins++;
     }
     computerSelection()
     gameCounter++
-    if (playerWins === maxGames){
-        alert(`Player Wins!`);
-    }else if (compWins === maxGames){
-        alert(`Player Loses`)
+    if (playerWins === maxWins){
+        alert(`Game Over -- Player Wins!`);
+    }else if (compWins === maxWins){
+        alert(`Game Over -- Player Loses`)
     }
 }
 
+function gameOver() {
+    alert(`Game Over -- You've given up!`);
+}
 computerSelection()
 
 // Prompt user for rock paper or scissors
